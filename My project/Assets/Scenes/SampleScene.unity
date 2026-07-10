@@ -546,8 +546,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a851eff66d0905489582bd4eb451ba0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Spawner
-  prefab: {fileID: 1674012083750376866, guid: 8a17811a5a699704b8f7126e36325014, type: 3}
-  interval: 2
+  prefab: {fileID: 8339888144014641765, guid: 21304eaf71c81464aa4b9ef3b5665fce, type: 3}
+  interval: 1
   center: {x: 1, y: 0.7, z: 10}
   size: {x: 10, y: 0.7, z: 10}
 --- !u!4 &496940167
@@ -1402,9 +1402,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1694388104864216425, guid: 678bf8bc91771fa498236de892b83d1d, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: fdb2c29e382f2ef4a80ed0b6b269626d, type: 2}
     - target: {fileID: 1694388104871467657, guid: 678bf8bc91771fa498236de892b83d1d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.518
+      value: 0.199
       objectReference: {fileID: 0}
     - target: {fileID: 1694388104871467657, guid: 678bf8bc91771fa498236de892b83d1d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1488,6 +1492,10 @@ PrefabInstance:
     - target: {fileID: 1674012083750376866, guid: 8a17811a5a699704b8f7126e36325014, type: 3}
       propertyPath: m_Name
       value: Target
+      objectReference: {fileID: 0}
+    - target: {fileID: 1674012083750376866, guid: 8a17811a5a699704b8f7126e36325014, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3059336501893003455, guid: 8a17811a5a699704b8f7126e36325014, type: 3}
       propertyPath: m_Mesh
