@@ -18,6 +18,7 @@ public class Target : MonoBehaviour
 
     void Die()
     {
+        GameManager.Instance.AddKill(); // ƒLƒ‹”’Ç‰Á
         Destroy(gameObject);
     }
 }

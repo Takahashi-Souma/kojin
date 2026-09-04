@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerLife : MonoBehaviour
 {
@@ -26,5 +27,12 @@ public class PlayerLife : MonoBehaviour
 
         // パネル表示
         gameOverPanel.SetActive(true);
+    }
+
+    // リスタートボタンから呼び出す
+    public void RestartGame()
+    {
+        Time.timeScale = 1f; // 時間を元に戻す
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

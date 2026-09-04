@@ -7,12 +7,13 @@ public class EnemyAI : MonoBehaviour
     private Rigidbody rb;
 
     public float speed = 3f;
+    public float acceleration = 0.1f; // 1秒あたりの加速度
+    public float maxSpeed = 10f;      // 最高速度
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
 
-        // Playerタグを探す
         GameObject obj = GameObject.FindWithTag("Player");
         if (obj != null)
         {
@@ -20,16 +21,18 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    void FixedUpdate() // 物理計算はFixedUpdate
+    void FixedUpdate()
     {
         if (player == null) return;
 
+        // 徐々に加速
+        speed += acceleration * Time.fixedDeltaTime;
+        speed = Mathf.Min(speed, maxSpeed);
+
         Vector3 dir = (player.position - transform.position).normalized;
 
-        // Rigidbodyで移動
         rb.MovePosition(rb.position + dir * speed * Time.fixedDeltaTime);
 
-        // 向きだけ変更
         transform.LookAt(player);
     }
 }

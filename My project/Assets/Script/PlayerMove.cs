@@ -5,6 +5,10 @@ public class PlayerMove : MonoBehaviour
 {
     public float speed = 5f;
 
+    // ˆÚ“®”ÍˆÍ
+    public float minX = -8f;
+    public float maxX = 8f;
+
     private Rigidbody rb;
     private Vector2 moveInput;
     private InputAction moveAction;
@@ -33,9 +37,17 @@ public class PlayerMove : MonoBehaviour
     {
         moveInput = moveAction.ReadValue<Vector2>();
 
-        Vector3 move = new Vector3(moveInput.x, 0, moveInput.y);
-        move = transform.TransformDirection(move); // Œü‚¢‚Ä‚é•ûŒüŠî€
+        Vector3 move = new Vector3(moveInput.x, 0, 0);
 
-        rb.linearVelocity = new Vector3(move.x * speed, rb.linearVelocity.y, move.z * speed);
+        rb.linearVelocity = new Vector3(
+            move.x * speed,
+            rb.linearVelocity.y,
+            0
+        );
+
+        // ˆÊ’u§ŒÀ
+        Vector3 pos = transform.position;
+        pos.x = Mathf.Clamp(pos.x, minX, maxX);
+        transform.position = pos;
     }
 }
